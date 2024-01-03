@@ -3,8 +3,7 @@ import { LOGIN_URL } from '../../Constants.js';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from './useAuth.js';
-import { UserContext, userAuthContext } from "./UserContext.js";
+import { UserContext } from "./UserContext.js";
 
 
 const Login = () => {
@@ -14,32 +13,31 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
-    const { setUserName } = useAuth();
+   
 
     //! The Function Which Handles Login Request
+    //!  Saves the token in Cookies
+    //! invokes login method which sets user login as true
     async function loginHandler(e) {
         e.preventDefault();
         try {
             const response = await axios.post(LOGIN_URL, { username, password }, { headers: { 'Content-Type': 'application/json' } });
             const msg = "Welcome " + response.data.firstName + " " + response.data.lastName;
             setMessage(msg);
-            console.log(response.data);
-            setUserName(response.data.firstName)
+            
             Cookies.set("accessToken", response.data.token);
             login(response.data.token);
 
             setTimeout(() => {
                 setMessage('')
                 navigate('/')
-            }, 1500)
+            }, 1000)
 
         } catch (error) {
             setMessage(error.response.data.message);
-
-
             setTimeout(() => {
                 setMessage('')
-            }, 1500)
+            }, 1000)
         }
     }
 

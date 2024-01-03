@@ -1,6 +1,5 @@
 import Cookies from "js-cookie";
 import { useEffect, useState, useContext } from "react";
-import { useAuth } from "./auth/useAuth";
 import { Link } from "react-router-dom";
 import { CartContext } from "./cart/CartContext";
 import { UserContext } from "./auth/UserContext";

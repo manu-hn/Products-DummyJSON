@@ -17,7 +17,7 @@ const ProductsLists = () => {
         const price = parseInt(value, 10)
         if (price === 400) {
             const priceAboveFilteredProducts = products.map(prod => prod).filter(product => product.price > price)
-            console.log(priceAboveFilteredProducts)
+          
             setFilteredProductList(priceAboveFilteredProducts)
         } else {
             const priceFilteredProducts = products.map(prod => prod).filter(product => product.price < price)

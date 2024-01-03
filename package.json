@@ -1,0 +1,39 @@
+{
+  "name": "products-dummyjson",
+  "version": "1.0.0",
+  "description": "Products Cart is a eCommerce like websites which gets data, authentication and all other details from DummyJSON",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "npx parcel public/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manu-hn/Products-DummyJSON.git"
+  },
+  "keywords": [
+    "Products",
+    "Assignment",
+    "Internshala"
+  ],
+  "author": "ManuHN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manu-hn/Products-DummyJSON/issues"
+  },
+  "homepage": "https://github.com/manu-hn/Products-DummyJSON#readme",
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "parcel": "^2.10.3",
+    "postcss": "^8.4.32",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.3",
+    "js-cookie": "^3.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.1"
+  }
+}

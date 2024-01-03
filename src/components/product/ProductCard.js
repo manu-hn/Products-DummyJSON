@@ -1,6 +1,6 @@
 
 
-
+//^ Individual Product Card When User Clicks on a cart This Component will be displayed with full product data
 const ProductCard = ({item}) => {
     const{title,brand, price, description,thumbnail, rating}=item
     return (

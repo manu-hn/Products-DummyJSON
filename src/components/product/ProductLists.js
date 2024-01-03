@@ -6,37 +6,40 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PleaseLogin from '../auth/PleaseLogin.js';
 import { UserContext } from '../auth/UserContext.js';
+import { CATEGORY_URL } from '../../Constants.js';
 
 const ProductsLists = () => {
-    const {isLoggedIn}=useContext(UserContext)
+    const { isLoggedIn } = useContext(UserContext)
     const { products, setProducts, filteredProductList, setFilteredProductList } = useProducts()
     const [filterValue, setFilterValue] = useState('');
-    const [searchText, setSearchText] = useState('')
+    const [searchText, setSearchText] = useState('');
 
+
+    //^ this below function filters the products based on price
     function filterBasedOnAmount(value) {
         const price = parseInt(value, 10)
         if (price === 400) {
             const priceAboveFilteredProducts = products.map(prod => prod).filter(product => product.price > price)
-          
+
             setFilteredProductList(priceAboveFilteredProducts)
         } else {
             const priceFilteredProducts = products.map(prod => prod).filter(product => product.price < price)
             setFilteredProductList(priceFilteredProducts)
         }
     }
-
+    //^ This below Function takes input search ans searches products based
     async function filterBasedOnText(text) {
-        const data = await axios.get("https://dummyjson.com/products/search?q=" + text)
+        const data = await axios.get(CATEGORY_URL + text)
         setFilteredProductList(data.data.products)
         console.log(data.data.products)
     }
-
+    //^ If Fetching Products details takes time till then AShimmer will be visible making better User Experience
     if (products === null) return <Shimmer />
-    return isLoggedIn ?  (
+    return isLoggedIn ? (
         <div className='flex-flex-col py-8 bg-gray-50'>
             <div className='w-full flex justify-center m-4'>
                 <div className='w-6/12 flex justify-center'>
-                    
+
                     <input placeholder='Search here' className='border-b border-black outline-none px-4 bg-transparent placeholder:text-black' type="text" onChange={(e) => setSearchText(e.target.value)} />
                     <button className='ml-4 bg-blue-500 rounded-md px-6' onClick={() => filterBasedOnText(searchText)}>Search</button>
                 </div>

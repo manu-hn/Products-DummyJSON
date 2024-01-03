@@ -1,8 +1,8 @@
 import RemoveProduct from "../assets/RemoveProduct.js";
 
-const CartInfo = ({ items }) => {
-    
 
+//^ This Component Displays Product Information that has been added to CART
+const CartInfo = ({ items }) => {
     return (
         <div className="flex w-full items-center justify-center ">
             <section className=" m-8 shadow-lg w-2/4 flex p-4">

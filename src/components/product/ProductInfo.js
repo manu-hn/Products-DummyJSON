@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import Shimmer from "../utils/Shimmer.js";
 import { useParams } from "react-router-dom";
 import useProductCard from "../utils/useProductCard";
-import { CartContext } from "../cart/CartContext.js";
 import BackToHome from "../assets/BackToHome.js";
 import AddToCart from "../assets/AddToCart.js";
 import RemoveProduct from "../assets/RemoveProduct.js";
@@ -10,19 +9,17 @@ import RemoveProduct from "../assets/RemoveProduct.js";
 
 const ProductInfo = () => {
     const { prodID } = useParams();
-    const { addToCart, removeProduct } = useContext(CartContext)
-    // console.log("Cart ",)
+
     const data = useProductCard(prodID)
 
-
-
+    //^ If the data fetch takes time Shimmer Effect will be visible till then
     if (data === null) return <Shimmer />
 
     return (
         <div className="flex flex-col w-full items-center m-8 h-[30rem]">
-           <section className="w-full">
-           <BackToHome />
-           </section>
+            <section className="w-full">
+                <BackToHome />
+            </section>
             <div className="flex w-2/4 justify-between border shadow-md p-4">
                 <div className="mx-4 ">
                     <img className="w-56 h-72" src={data.images[1]} alt={data.brand} />
@@ -41,7 +38,7 @@ const ProductInfo = () => {
             <div className="m-4 w-2/6 flex justify-between">
                 <AddToCart data={data} />
                 <RemoveProduct prodID={prodID} />
-               
+
             </div>
         </div>
     )

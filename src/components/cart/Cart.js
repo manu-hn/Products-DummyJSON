@@ -12,7 +12,11 @@ const Cart = () => {
   const totalPrice=cart.map(item=>item.price).reduce((total, currentProduct)=>{
     return total+currentProduct;
   },0)
-  
+ 
+  //^ The if condition checks if the user is logged in or not 
+  //^ if true it checks if cart is empty or not and displays Cart Empty Message
+  //^ If cart is not empty it displays product with total price and remove button with it
+  //^ If isLoggedIn is false means user logged out or not logged in in that case Please login component wil be displayed
  if(isLoggedIn){
   if(cart.length===0)return <CartEmpty />
   return (

@@ -4,7 +4,7 @@
 const ProductCard = ({item}) => {
     const{title,brand, price, description,thumbnail, rating}=item
     return (
-        <div className="border border-black bg-gray-100 w-48 h-72 m-4 overflow-hidden p-2 rounded-lg">
+        <div className="border shadow-sm bg-white w-48 h-72 m-4 overflow-hidden p-2 rounded-lg">
             <div>
                 <img className="w-44 h-36 rounded-lg" src={thumbnail} alt={title} />
             </div>

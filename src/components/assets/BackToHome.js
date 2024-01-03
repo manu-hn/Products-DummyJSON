@@ -1,6 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
+//^ Simple Back TO Home Button Component
+//^ Navigates to Home page
 const BackToHome = () => {
   return (
     <div>

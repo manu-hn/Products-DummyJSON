@@ -33,16 +33,16 @@ const ProductsLists = () => {
 
     if (products === null) return <Shimmer />
     return isLoggedIn ?  (
-        <div className='flex-flex-col mt-8'>
+        <div className='flex-flex-col py-8 bg-gray-50'>
             <div className='w-full flex justify-center m-4'>
                 <div className='w-6/12 flex justify-center'>
                     
-                    <input placeholder='Search here' className='border border-black outline-none px-4 rounded-md' type="text" onChange={(e) => setSearchText(e.target.value)} />
+                    <input placeholder='Search here' className='border-b border-black outline-none px-4 bg-transparent placeholder:text-black' type="text" onChange={(e) => setSearchText(e.target.value)} />
                     <button className='ml-4 bg-blue-500 rounded-md px-6' onClick={() => filterBasedOnText(searchText)}>Search</button>
                 </div>
 
                 <div className='w-6/12'>
-                    <select name="" value={filterValue} id="" onChange={(e) => setFilterValue(e.target.value)}>
+                    <select className='bg-transparent outline-none border-b border-black' name="" value={filterValue} id="" onChange={(e) => setFilterValue(e.target.value)}>
                         <option value="all">Filter based on price</option>
                         <option value="100">below 100</option>
                         <option value="200">below 200</option>

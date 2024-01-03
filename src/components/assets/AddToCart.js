@@ -1,6 +1,9 @@
 import React, {useContext} from 'react'
 import { CartContext } from '../cart/CartContext'
 
+
+//^ This Component Handles Add TO Cart Functionality 
+//^ for addToCart function we have to pass the product details as arguments
 const AddToCart = ({data}) => {
     const {addToCart}=useContext(CartContext);
    

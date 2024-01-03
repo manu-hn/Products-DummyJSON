@@ -16,7 +16,7 @@ const Cart = () => {
  if(isLoggedIn){
   if(cart.length===0)return <CartEmpty />
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center bg-white'>
       <BackToHome />
       {
         cart.map(item=>{
